@@ -1,26 +1,19 @@
 pipeline {
-  agent { node { label 'slave01' } }
-
-   stages {
-     stage ('C') {
-       when {
-         expression { ${LANGUAGE} == 'C'}
-       }
-       steps {
-          echo "C selected"
-          }
-       }
-
-     when {
-         expression { ${LANGUAGE} == 'Python'}
-       }
-       steps {
-          echo "Python selected"
-          }
-       }when {
-         expression { ${LANGUAGE} == 'Bash'}
-       }
-       steps {
-          echo "Bash selected"
-          }
-       }
+  agent any
+  stages {
+    stage('Example Build') {
+      steps {
+        sh 'echo Hello World'
+      }
+    }
+    stage('Example Deploy') {
+      when {
+        branch 'main'
+        environment name: 'LANGUAGE', value: 'C'
+      }
+      steps {
+        sh 'echo Deploying'
+      }
+    }
+  }
+}
