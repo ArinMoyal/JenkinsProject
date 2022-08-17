@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Initiation') {
       steps {
-        sh 'echo Initiating script. You chose ${LANGUAGE} programming language(s). Running ${LANGUAGE} script(s).'
+        sh 'echo Initiating script. You chose ${LANGUAGE} programming language\(s\). Running ${LANGUAGE} script\(s\).'
       }
     }
     stage('C script') {
