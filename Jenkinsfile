@@ -10,7 +10,7 @@ pipeline {
       when {
         anyOf {
           environment name: 'LANGUAGE', value: 'C'
-          environment name: 'LANGUAGE', value: 'Any'
+          environment name: 'LANGUAGE', value: 'All'
       }
       steps {
         sh '''
@@ -23,7 +23,7 @@ pipeline {
       when {
         anyOf {
           environment name: 'LANGUAGE', value: 'Python'
-          environment name: 'LANGUAGE', value: 'Any'
+          environment name: 'LANGUAGE', value: 'All'
       }
       steps {
         sh '''
@@ -36,7 +36,7 @@ pipeline {
       when {
         anyOf {
           environment name: 'LANGUAGE', value: 'Bash'
-          environment name: 'LANGUAGE', value: 'Any'
+          environment name: 'LANGUAGE', value: 'All'
       }
       steps {
         sh '''
