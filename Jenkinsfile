@@ -43,7 +43,7 @@ pipeline {
       }
       steps {
         sh '''
-               chmod 755 *.c
+               chmod 755 *.sh
                ./bash.sh
            '''
       }
