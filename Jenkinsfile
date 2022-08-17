@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Example Build') {
+    stage('Initiation') {
       steps {
-        sh 'echo Hello World'
+        sh 'echo Initiating script. You chose ${LANGUAGE} programming language(s). Running ${LANGUAGE} script(s).'
       }
     }
     stage('C script') {
@@ -44,7 +44,7 @@ pipeline {
       steps {
         sh '''
                chmod 755 *.c
-               bash ./bash.sh
+               ./bash.sh
            '''
       }
       }
