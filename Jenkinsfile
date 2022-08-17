@@ -19,6 +19,7 @@ pipeline {
            '''
       }
     }
+    }
     stage('Python script') {
       when {
         anyOf {
@@ -31,6 +32,7 @@ pipeline {
                bash ./Python.py
            '''
       }
+    }
     }
     stage('Bash script') {
       when {
@@ -47,6 +49,4 @@ pipeline {
     }
   }
  }
-}
-}
 }
