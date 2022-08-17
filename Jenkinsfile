@@ -3,25 +3,26 @@ pipeline {
 
    stages {
      stage ('C') {
+       when {
+         expression { ${LANGUAGE} == 'C'}
+       }
        steps {
-         if ({$LANGUAGE} in ["C","all"]) {
           echo "C selected"
           }
        }
-     }
 
-     stage ('Python') {
+     when {
+         expression { ${LANGUAGE} == 'Python'}
+       }
        steps {
-         if ({$LANGUAGE} in ["Python","all"]) {
           echo "Python selected"
           }
+       }when {
+         expression { ${LANGUAGE} == 'Bash'}
        }
-     }     stage ('Bash') {
        steps {
-         if ({$LANGUAGE} in ["Bash","all"]) {
           echo "Bash selected"
           }
        }
-     }
    }
 }
