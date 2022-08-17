@@ -6,7 +6,7 @@ pipeline {
         sh 'echo Hello World'
       }
     }
-    stage('Example Deploy') {
+    stage('C script') {
       when {
         environment name: 'LANGUAGE', value: 'C'
       }
@@ -14,6 +14,28 @@ pipeline {
         sh '''
                chmod 755 *.c
                bash ./C.c
+           '''
+      }
+    }
+    stage('Python script') {
+      when {
+        environment name: 'LANGUAGE', value: 'Python'
+      }
+      steps {
+        sh '''
+               chmod 755 *.py
+               bash ./Python.py
+           '''
+      }
+    }
+    stage('Bash script') {
+      when {
+        environment name: 'LANGUAGE', value: 'Bash'
+      }
+      steps {
+        sh '''
+               chmod 755 *.c
+               bash ./bash.sh
            '''
       }
     }
