@@ -2,20 +2,26 @@ pipeline {
   agent { node { label 'slave01' } }
 
    stages {
-     stage "C"
-       if ({$LANGUAGE} in ["C","all"]) {
-        echo "C selected"
-    }
+     stage ('C') {
+       steps {
+         if ({$LANGUAGE} in ["C","all"]) {
+          echo "C selected"
+          }
+       }
+     }
 
-     stage "Python"
-       if ({$LANGUAGE} in ["Python","all"]) {
-        echo "Python selected"
-    }
-
-     stage "Bash"
-       if ({$LANGUAGE} in ["Bash","all"]) {
-        echo "Bash selected"
-    }
-
+     stage ('Python') {
+       steps {
+         if ({$LANGUAGE} in ["Python","all"]) {
+          echo "Python selected"
+          }
+       }
+     }     stage ('Bash') {
+       steps {
+         if ({$LANGUAGE} in ["Bash","all"]) {
+          echo "Bash selected"
+          }
+       }
+     }
    }
 }
