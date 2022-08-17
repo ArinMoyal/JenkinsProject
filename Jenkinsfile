@@ -8,7 +8,6 @@ pipeline {
     }
     stage('Example Deploy') {
       when {
-        branch 'main'
         environment name: 'LANGUAGE', value: 'C'
       }
       steps {
