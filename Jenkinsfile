@@ -8,7 +8,7 @@ pipeline {
     }
     stage('C script') {
       when {
-        allOf {
+        anyOf {
           environment name: 'LANGUAGE', value: 'C'
           environment name: 'LANGUAGE', value: 'Any'
       }
@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Python script') {
       when {
-        allOf {
+        anyOf {
           environment name: 'LANGUAGE', value: 'Python'
           environment name: 'LANGUAGE', value: 'Any'
       }
@@ -34,7 +34,7 @@ pipeline {
     }
     stage('Bash script') {
       when {
-        allOf {
+        anyOf {
           environment name: 'LANGUAGE', value: 'Bash'
           environment name: 'LANGUAGE', value: 'Any'
       }
