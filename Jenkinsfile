@@ -8,7 +8,9 @@ pipeline {
     }
     stage('C script') {
       when {
-        environment name: 'LANGUAGE', value: 'C'
+        allOf {
+          environment name: 'LANGUAGE', value: 'C'
+          environment name: 'LANGUAGE', value: 'Any'
       }
       steps {
         sh '''
@@ -19,7 +21,9 @@ pipeline {
     }
     stage('Python script') {
       when {
-        environment name: 'LANGUAGE', value: 'Python'
+        allOf {
+          environment name: 'LANGUAGE', value: 'Python'
+          environment name: 'LANGUAGE', value: 'Any'
       }
       steps {
         sh '''
@@ -30,7 +34,9 @@ pipeline {
     }
     stage('Bash script') {
       when {
-        environment name: 'LANGUAGE', value: 'Bash'
+        allOf {
+          environment name: 'LANGUAGE', value: 'Bash'
+          environment name: 'LANGUAGE', value: 'Any'
       }
       steps {
         sh '''
