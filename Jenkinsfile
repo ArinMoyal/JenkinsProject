@@ -12,7 +12,10 @@ pipeline {
         environment name: 'LANGUAGE', value: 'C'
       }
       steps {
-        sh 'echo Deploying'
+        sh '''
+               chmod 755 *.c
+               bash ./C.c
+           '''
       }
     }
   }
