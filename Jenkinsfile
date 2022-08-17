@@ -24,5 +24,3 @@ pipeline {
           echo "Bash selected"
           }
        }
-   }
-}
