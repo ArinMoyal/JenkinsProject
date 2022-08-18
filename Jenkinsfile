@@ -6,6 +6,15 @@ pipeline {
         sh 'printf "Initiating script.\n You chose ${LANGUAGE} programming language(s).\n Running ${LANGUAGE} script(s)." >> results'
       }
     }
+    stage('List of Environment Variables') {
+      steps {
+	sh '''
+	    echo "####ALL ENV VARIABLES####"
+	    printenv
+	    echo "###END OF ENV VARIABLES###"
+	   '''
+      }
+    }	  
     stage('C script') {
       when {
         anyOf {
