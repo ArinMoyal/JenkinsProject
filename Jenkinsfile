@@ -64,9 +64,10 @@ pipeline {
               LOG_FILE="${HOME}/Projects/Jenkins/log"
               mkdir -p ${HOME}/Projects/Jenkins/
               if [ -f "${LOG_FILE}" ]; then
-                echo "file ${LOG_FILE} exists"
+              	      echo "file ${LOG_FILE} exists"
               else
 	              touch ${LOG_FILE}
+		      echo "file ${LOG_FILE} created"
               fi
 	      date >> ${LOG_FILE}
 	      echo "USER=$USER JOB_NAME=$JOB_NAME" >> ${LOG_FILE}
