@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Initiation') {
       steps {
-        sh 'printf "Initiating script.\n You chose ${LANGUAGE} programming language(s).\n Running ${LANGUAGE} script(s)." >> results'
+        sh 'printf "Initiating script.\n You chose ${LANGUAGE} programming language(s).\n Running ${LANGUAGE} script(s).\n" >> results'
       }
     }
     stage('List of Environment Variables') {
