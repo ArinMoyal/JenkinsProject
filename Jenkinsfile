@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh '''
                chmod 755 *.c
-               bash ./C.c
+               bash ${WORKSPACE}/C.c >> results
            '''
       }
     }
@@ -30,7 +30,7 @@ pipeline {
       steps {
         sh '''
                chmod 755 *.py
-               bash ./Python.py
+               bash ${WORKSPACE}/Python.py >> results
            '''
       }
     }
@@ -44,7 +44,7 @@ pipeline {
       steps {
         sh '''
                chmod 755 *.sh
-               ./bash.sh
+               ${WORKSPACE}/bash.sh >> results
            '''
       }
     }
@@ -52,18 +52,18 @@ pipeline {
        steps {
           echo 'Saving log file...'
           sh '''
-              report_file="${HOME}/Projects/Jenkins/log"
+              LOG_FILE="${HOME}/Projects/Jenkins/log"
               mkdir -p ${HOME}/Projects/Jenkins/
-              if [ -f "${report_file}" ]; then
-                echo "file ${report_file} exists"
+              if [ -f "${LOG_FILE}" ]; then
+                echo "file ${LOG_FILE} exists"
               else
-	              touch ${report_file}
+	              touch ${LOG_FILE}
               fi
-	      date >> ${report_file}
-	      echo "USER=$USER JOB_NAME=$JOB_NAME" >> ${report_file}
-              echo "Build Number: $BUILD_NUMBER" >> ${report_file}
-              cat "${WORKSPACE}/scripts/results" >> ${report_file}
-	      echo "#############END OF LOG############" >> ${report_file}
+	      date >> ${LOG_FILE}
+	      echo "USER=$USER JOB_NAME=$JOB_NAME" >> ${LOG_FILE}
+              echo "Build Number: $BUILD_NUMBER" >> ${LOG_FILE}
+              cat "${WORKSPACE}/results" >> ${LOG_FILE}
+	      echo "#############END OF LOG############" >> ${LOG_FILE}
             '''
       }
     }
