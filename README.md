@@ -1,7 +1,7 @@
 # JenkinsProject
 ### My RT-ED Jenkins project
 
-### In this project, the pipeline runs every time a commit is made.
+## In this project, the pipeline runs every time a commit is made.
 
 It first announces which languages were chosen, and prints all the environment variables.
 
